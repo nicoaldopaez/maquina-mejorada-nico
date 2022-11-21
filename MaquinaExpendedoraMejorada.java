@@ -44,7 +44,7 @@ public class MaquinaExpendedoraMejorada {
         if (balanceClienteActual >0){
             vaciarDineroDeLaMaquina = -1;
         }
-        balanceClienteActual = 0;
+        
         totalDineroAcumulado = 0;  
            
                
