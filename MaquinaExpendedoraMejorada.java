@@ -10,32 +10,41 @@ public class MaquinaExpendedoraMejorada {
     private String estacionOrigen;
     // El destino del billete
     private String estacionDestino;
-    
+    //Muestra la cantidad de billetes vendidos
     private int numeroBilletesVendidos;
+    //
+    private boolean tipoMaquina;
+    
+    
+    
 
     /**
      * Crea una maquina expendedora de billetes de tren con el 
      * precio del billete y el origen y destino dados. Se asume que el precio
      * del billete que se recibe es mayor que 0.
      */
-    public MaquinaExpendedoraMejorada(int precioDelBillete, String origen, String destino) {
+    public MaquinaExpendedoraMejorada(int precioDelBillete, String origen, String destino,boolean con_Premio ) {
         precioBillete = precioDelBillete;
         balanceClienteActual = 0;
         totalDineroAcumulado = 0;
         estacionOrigen = origen;
         estacionDestino = destino;
+        numeroBilletesVendidos = 0;
+        tipoMaquina = con_Premio;
+        
     }
     
     /**
      * Segundo constructor de la maquina mejorada
      */
-    public MaquinaExpendedoraMejorada() {
+    public MaquinaExpendedoraMejorada(boolean con_Premio) {
         precioBillete = 100;
         balanceClienteActual = 0;
         totalDineroAcumulado = 0;
         estacionOrigen = "Leon";
         estacionDestino = "Murcia";
         numeroBilletesVendidos = 0;
+        tipoMaquina = con_Premio;
     }
     
     /**
@@ -53,7 +62,7 @@ public class MaquinaExpendedoraMejorada {
         }
         return vaciarDineroDeLaMaquina;
            
-    } 
+    }
     
     /**
      * Devuelve el número de billetes vendidos.
@@ -63,7 +72,7 @@ public class MaquinaExpendedoraMejorada {
     }
     
     public void imprimirNumeroBilletesvendidos() {
-        System.out.println ("El número de billetes vendios es: " + numeroBilletesVendidos);
+        System.out.println ("El número de billetes vendidos es: " + numeroBilletesVendidos);
     }
 
     /**
@@ -105,7 +114,11 @@ public class MaquinaExpendedoraMejorada {
             System.out.println("# De " + estacionOrigen + " a " + estacionDestino);
             System.out.println("# " + precioBillete + " euros.");
             System.out.println("##################");
-            System.out.println();         
+            System.out.println();   
+            if (tipoMaquina == true){
+                double premio = 0.25 * precioBillete;
+                System.out.println("Te has llevado un descuento de "+ (premio) +" euros de descuento en carrefour       ");
+            }
     
             // Actualiza el total de dinero acumulado en la maquina
             totalDineroAcumulado = totalDineroAcumulado + precioBillete;
