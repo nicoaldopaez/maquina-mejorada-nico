@@ -115,6 +115,7 @@ public class MaquinaExpendedoraMejorada {
         if (numeroBilletesVendidos >= cantidadMaximaBilletes){
             System.out.println ("Has superado el máximo de billetes");
         }
+        
         else{
             if (cantidadDeDineroQueFalta <= 0) {
                 numeroBilletesVendidos += 1;
@@ -126,8 +127,9 @@ public class MaquinaExpendedoraMejorada {
                 System.out.println("##################");
                 System.out.println();   
                 if (tipoMaquina == true){
-                    double premio = 0.25 * precioBillete;
-                    System.out.println("Te has llevado un descuento de "+ (premio) +" euros de descuento en carrefour       ");
+                    if(numeroBilletesVendidos %4 == 0){
+                       System.out.println("Te has llevado un premio!!"); 
+                    }
                 }
     
                 // Actualiza el total de dinero acumulado en la maquina
